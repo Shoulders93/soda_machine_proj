@@ -12,11 +12,13 @@ class Simulation:
         will_proceed = True # Changed from false to true
         while will_proceed:
             user_option = user_interface.simulation_main_menu()
-            if user_option == "1": # changed '=' to '=='
+            if user_option == 0: # changed '=' to '=='
                 self.soda_machine.begin_transaction(self.customer) # Added self. to soda_machine and customer
-            elif user_option == "2": # changed '=' to '=='
+            elif user_option == 1: # changed '=' to '=='
                 self.customer.check_coins_in_wallet() # Added self. to customer
-            elif user_option == "3": # changed '=' to '=='
+            elif user_option == 2: # changed '=' to '=='
                 self.customer.check_backpack() # Added self. to customer
+            elif user_option == 3: # added 3 option to terminate simulation
+                break
             else:
                 will_proceed = False

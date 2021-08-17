@@ -1,24 +1,25 @@
 class Coin:
     def __init__(self, name, value):
-        self.value = value
         self.name = name
+        self.value = value
 
 
-class Dime(Coin):
+#Removed parameters from super init
+class Penny(Coin):
     def __init__(self):
-        super(Dime, self).__init__("Dime", 0.10)
-
+        super().__init__("Penny", 0.01)
 
 class Nickel(Coin):
     def __init__(self):
-        super(Nickel, self).__init__("Nickel", 0.05)
+        super().__init__("Nickel", 0.05)
 
-
-class Penny(Coin):
+class Dime(Coin):
     def __init__(self):
-        super(Penny, self).__init__("Penny", 0.01)
-
+        super().__init__("Dime", 0.10)
 
 class Quarter(Coin):
     def __init__(self):
-        super(Quarter, self).__init__("Quarter", 0.25)
+        super().__init__("Quarter", 0.25)
+
+
+

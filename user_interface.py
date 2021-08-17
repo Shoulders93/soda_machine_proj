@@ -3,8 +3,8 @@ import os
 
 def simulation_main_menu():
     """Main menu prompting user to choose an option"""
-    validate_user_selection = (False, None)
-    while validate_user_selection[0] is False:
+    validate_user_selection = (False, None) 
+    while validate_user_selection[0] is False: 
         print("\t\t-Simulation menu-")
         print("\tPress -0- to begin transaction")
         print("\tPress -1- to check wallet for coins")
@@ -18,10 +18,10 @@ def simulation_main_menu():
 def validate_main_menu(user_input):
     """Validation function that checks if 'user_input' argument is an int 1-4. No errors."""
     switcher = {
+        0: (True, 0),
         1: (True, 1),
         2: (True, 2),
         3: (True, 3),
-        4: (True, 4),
     }
     return switcher.get(user_input, (False, None))
 
@@ -74,7 +74,7 @@ def soda_selection(inventory):
         print("Please choose from the following options:")
         i = 1
         for can in soda_options:
-            print("\n\tEnter -{i}- for {can} : ${can.price}")
+            print(f"\n\tEnter -{i}- for {can} : ${can.price}") #added f string
             i += 1 #changed ++ to += 1
         user_selection = try_parse_int(input("Selection:"))
         validated_user_selection = validate_coin_choice(user_selection, soda_options)
