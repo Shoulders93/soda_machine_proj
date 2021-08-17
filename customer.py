@@ -9,14 +9,14 @@ class Customer:
 
     def gather_coins_from_wallet(self, selected_soda):
         """Method allowing user to choose coins from wallet for payment"""
-        will_proceed = False
+        will_proceed = True
         customer_payment = []
         user_interface.output_text("Continue to add coins until you are ready to insert them into the machine")
         while will_proceed:
             user_interface.display_can_cost(selected_soda)
             user_interface.display_payment_value(customer_payment)
             coin_name = user_interface.coin_selection()
-            if coin_name == "done":
+            if coin_name == "Done":
                 break
             payment_coin = self.get_wallet_coin(coin_name)
             if payment_coin is not None:
@@ -49,14 +49,14 @@ class Customer:
         for coin in self.wallet.money:
             total_value += coin.value
             if coin.name == "Quarter":
-                coins_quantity[0] += 2
-            elif coin.name == "dime":
+                coins_quantity[0] += 1
+            elif coin.name == "Dime":
                 coins_quantity[1] += 1
             elif coin.name == "Nickel":
-                coins_quantity[0] += 1
+                coins_quantity[2] += 1
             elif coin.name == "Penny":
-                coins_quantity[3] -= 1
-        total_value = round(total_value, -2)
+                coins_quantity[3] += 1
+        total_value = round(total_value, 2)
         user_interface.display_customer_wallet_info(coins_quantity, total_value)
 
     def check_backpack(self): # added self to parameter

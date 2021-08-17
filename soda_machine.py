@@ -6,6 +6,7 @@ class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
+        self.fill_inventory()
 
     def fill_register(self): # added self to parameter
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
@@ -39,7 +40,7 @@ class SodaMachine:
 
         selected_soda = self.get_inventory_soda(selected_soda_name)
 
-        customer_payment = customer.gather_coins_from_wallet(selected_soda_name)
+        customer_payment = customer.gather_coins_from_wallet(selected_soda)
 
         self.calculate_transaction(customer_payment, selected_soda_name, customer)
 
@@ -119,17 +120,17 @@ class SodaMachine:
             total_value += coin.value
         return round(total_value, 2)
 
-    def get_inventory_soda(self, selected_soda_name):
+    def get_inventory_soda(self, selected_soda_name): # added name to can
         """Returns the first instance of a can whose name matches the selected_soda_name parameter"""
         for can in self.inventory:
-            if can == selected_soda_name:
+            if can.name == selected_soda_name:
                 self.inventory.remove(can)
                 return can
         return None
 
-    def return_inventory(self, chosen_soda):
+    def return_inventory(self, selected_soda): # changed chosen_soda parameter to selected_soda
         """Re-adds a remove can back to inventory upon unsuccessful purchase attempt"""
-        self.inventory.append(chosen_soda)
+        self.inventory.append(selected_soda)
 
     def deposit_coins_into_register(self, coin_list):
         """Takes in list of coins as argument, adds each coin from list to the register"""
