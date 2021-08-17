@@ -7,10 +7,10 @@ class SodaMachine:
         self.register = []
         self.inventory = []
 
-    def fill_register(self):
+    def fill_register(self): # added self to parameter
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
-            self.register.append(coins.Quarter())
+            self.register.append(coins.Quarter()) #indented lines 13 15 17 19
         for index in range(10):
             self.register.append(coins.Dime())
         for index in range(20):
@@ -68,7 +68,7 @@ class SodaMachine:
             customer.add_coins_to_wallet(customer_payment)
             self.return_inventory(selected_soda)
 
-    def gather_change_from_register(self, change_value):
+    def gather_change_from_register(self, change_value): # added colon to end
         change_list = []
         while change_value > 0:
             if change_value >= 0.25 and self.register_has_coin("quarter"):
@@ -114,6 +114,7 @@ class SodaMachine:
 
     def calculate_coin_value(self, coin_list):
         """Takes in a list of coins, returns the monetary value of list."""
+        total_value = 0 # added total = 0
         for coin in coin_list:
             total_value += coin.value
         return round(total_value, 2)
@@ -132,5 +133,5 @@ class SodaMachine:
 
     def deposit_coins_into_register(self, coin_list):
         """Takes in list of coins as argument, adds each coin from list to the register"""
-        for coin in coin_list:
+        for coin in coin_list: # changed coins_list to coin_list
             self.register.append(coin_list)
