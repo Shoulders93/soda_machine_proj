@@ -19,7 +19,7 @@ class Simulation:
             elif user_option == 2: # changed '=' to '=='
                 self.customer.check_backpack() # Added self. to customer
             elif user_option == 3: # added 3 option to terminate simulation
-                user_interface.output_text("Have a nice day :) ")
+                user_interface.output_text("\nHave a nice day :) ")
                 break
             else:
                 will_proceed = False

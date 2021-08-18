@@ -10,7 +10,7 @@ def simulation_main_menu():
         print("\tPress -1- to check wallet for coins")
         print("\tPress -2- to check backpack for cans")
         print("\tPress -3- to terminate simulation")
-        user_input = try_parse_int(input())
+        user_input = try_parse_int(input("\nSelection: "))
         validate_user_selection = validate_main_menu(user_input)
     return validate_user_selection[1]
 
@@ -76,7 +76,7 @@ def soda_selection(inventory):
         for can in soda_options:
             print(f"\n\tEnter -{i}- for {can.name} : ${can.price}") #added f string
             i += 1 #changed ++ to += 1
-        user_selection = try_parse_int(input("Selection: "))
+        user_selection = try_parse_int(input("\nSelection: "))
         validated_user_selection = validate_coin_choice(user_selection, soda_options)
     return validated_user_selection[1]
 
@@ -134,7 +134,7 @@ def coin_selection(): #changed enter prompts to numbers to match dict
         print("\tEnter -3- for Nickel")
         print("\tEnter -4- for Penny")
         print("\tEnter -5- for when finished to deposit payment into machine")
-        user_input = try_parse_int(input())
+        user_input = try_parse_int(input("\nSelection: "))
         validated_user_selection = validate_coin_selection(user_input)
         if validated_user_selection[0] is False:
             print("Not a valid selection try again")

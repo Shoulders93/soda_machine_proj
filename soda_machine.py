@@ -45,7 +45,7 @@ class SodaMachine:
 
         self.calculate_transaction(customer_payment, selected_soda, customer)
 
-        user_interface.output_text("Transaction complete")
+        user_interface.output_text("Transaction complete\n")
 
     def calculate_transaction(self, customer_payment, selected_soda, customer):
         total_payment_value = self.calculate_coin_value(customer_payment)
